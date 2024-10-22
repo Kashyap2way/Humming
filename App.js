@@ -1,10 +1,10 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Icon from 'react-native-vector-icons/MaterialIcons';
 import HomeScreen from './screens/HomeScreen';
 import ActivityScreen from './screens/ActivityScreen';
 import GuideScreen from './screens/GuideScreen';
+import { Ionicons } from '@expo/vector-icons'; // or any other icons you prefer
 
 const Tab = createBottomTabNavigator();
 
@@ -19,18 +19,16 @@ export default function App() {
             if (route.name === 'Home') {
               iconName = 'home';
             } else if (route.name === 'Activity') {
-              iconName = 'local-activity';
+              iconName = 'bar-chart';
             } else if (route.name === 'Guide') {
               iconName = 'book';
             }
 
-            return <Icon name={iconName} size={size} color={color} />;
+            return <Ionicons name={iconName} size={size} color={color} />;
           },
-          tabBarActiveTintColor: '#ffffff',
-          tabBarInactiveTintColor: '#808080',
-          tabBarStyle: {
-            backgroundColor: '#333333', // Dark grey color
-          },
+          tabBarActiveTintColor: 'black',
+          tabBarInactiveTintColor: 'gray',
+          tabBarStyle: { backgroundColor: '#d3d3d3' }, // Light grey background for navbar
         })}
       >
         <Tab.Screen name="Home" component={HomeScreen} />
